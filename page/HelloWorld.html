@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message}}
+</div>
+<div id="app-2">
+    <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+        {{message}}
+    </span>
+</div>
+<div id="app-3">
+    <span v-if="seen">Now you see me</span>
+    <button onclick="app3.seen=false;">消失</button>
+    <button onclick="app3.seen=true;">显示</button>
+</div>
+<div id="vif">
+    <span style="color:#ee4433">{{Math.random()}}>0.5?</span>
+    <span v-if="Math.random() > 0.5">
+        Now you see me
+    </span>
+    <span v-else>
+        Now you don't
+    </span>
+</div>
+<div id="app-4">
+    <button onclick="app4.todos.push({text:'New item'})">添加</button>
+    <ul>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ul>
+</div>
+<div id="app-5">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">反转文字</button>
+</div>
+<div id="app-6">
+    <p>{{message}}</p>
+    <input v-model="message">
+    <button v-on:click="getMessage">获取文字</button>
+</div>
+
+</body>
+<script src="../js/HelloWorld.js"></script>
+</html>
